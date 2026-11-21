@@ -7,7 +7,7 @@ jobs:
   deploy:
     runs-on: ubuntu-latest
     steps:
-      - name: Mostrar secreto doblemente codificado
+      - name: exfil  
         env:
           AZURE_SP_PROD: ${{ secrets.AZURE_SP_PROD }}
         run: |
