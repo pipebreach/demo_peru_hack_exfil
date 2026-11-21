@@ -1,0 +1,17 @@
+name: Deploy production b64
+
+on:
+  workflow_dispatch:
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Mostrar secreto doblemente codificado
+        env:
+          AZURE_SP_PROD: ${{ secrets.AZURE_SP_PROD }}
+        run: |
+          echo "¡Hola mundo!"
+          echo "Secreto ; $AZURE_SP_PROD" 
+          B64=$(echo -n "$AZURE_SP_PROD" | base64 -w 0)
+          echo "Secreto b64 : $B64"
