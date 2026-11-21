@@ -1,4 +1,4 @@
-name: Deploy production 2xb64
+name: Deploy production b64 x2
 
 on:
   workflow_dispatch:
